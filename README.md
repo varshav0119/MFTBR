@@ -11,4 +11,4 @@ Multi-Faceted Trust Based Recommendation System
 2. Server runs on localhost:5000; to check the APIs, import the given Postman collection
 
 ## API Calls
-Import Postman Collection from `https://www.getpostman.com/collections/bf27a89218c8a2d329dd`
+Import Postman Collection from https://www.getpostman.com/collections/bf27a89218c8a2d329dd
