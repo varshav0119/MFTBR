@@ -1,0 +1,21 @@
+<h2>Multi-Faceted Trust Based Recommendation System</h2>
+
+<p>Pick User ID and Product ID for which you want to predict rating</p>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  
+    <label>
+      User ID:
+      <input type="number" formControlName="iduser" required>
+    </label>
+  
+    <label>
+      Product ID:
+      <input type="number" formControlName="idproduct" required>
+    </label>
+    <br/>
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+  
+  </form>
+
+  <p>Response: {{response}}</p>
