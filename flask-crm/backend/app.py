@@ -5,6 +5,7 @@ from custom_modules.local_trust import init_LT_module, local_trust_ratings
 from custom_modules.category_trust import init_CT_module, category_trust_ratings
 from custom_modules.similar_user import init_SU_module, similar_user_ratings
 from custom_modules.utility import init_utility, get_actual_rating, get_average_user_rating, get_average_product_rating
+import numpy as np
 
 app = Flask(__name__)
 CORS(app)
