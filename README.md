@@ -2,7 +2,7 @@
 Multi-Faceted Trust Based Recommendation System
 
 ## Dependencies
-1. Python3: flask, flask-cors, mysql-connector-python
+1. Python3: flask, flask-cors, Keras, pandas, 
 2. Angular
 
 ## Running
