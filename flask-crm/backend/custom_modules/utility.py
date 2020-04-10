@@ -16,10 +16,14 @@ def clean_reviews(review_df):
 def init_utility(fold = 5):
     global idfold
     global review_folded_df
+    global all_review_df
     global product_folded_df
     global user_folded_df
 
     idfold = fold
+
+    all_review_df = pd.read_csv(base_csv_path+"reviewfolded.csv")
+    all_review_df = clean_reviews(all_review_df)
 
     review_folded_df = pd.read_csv(base_csv_path+"reviewfolded.csv")
     review_folded_df = review_folded_df[review_folded_df['idfold']!=idfold]
@@ -32,9 +36,18 @@ def init_utility(fold = 5):
     user_folded_df = pd.read_csv(base_csv_path+"userfolded.csv")
     user_folded_df = user_folded_df.set_index('iduser')
 
+def iduser_is_valid(iduser):
+    if(iduser not in user_folded_df.index):
+        return False
+    return True
+
+def idproduct_is_valid(idproduct):
+    if(idproduct not in product_folded_df.index):
+        return False
+    return True
+
 def get_actual_rating(iduser,idproduct):
-    filtered_df = review_folded_df[(review_folded_df['iduser']==iduser) & (review_folded_df['idproduct']==idproduct)]['rating']
-    print(filtered_df)
+    filtered_df = all_review_df[(all_review_df['iduser']==iduser) & (all_review_df['idproduct']==idproduct)]
     if(filtered_df.empty == False):
         return int(filtered_df['rating'])
     return np.nan

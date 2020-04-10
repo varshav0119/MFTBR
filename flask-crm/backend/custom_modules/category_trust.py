@@ -181,8 +181,9 @@ class category_trust_ratings:
             return np.nan
 
     def get_expert_rating_df(self):
-        expert_df = pd.DataFrame().append(self.direct_ratings)
-        expert_df = expert_df.append(self.parent_ratings)
+        expert_df = pd.DataFrame()
+        expert_df = expert_df.append(list(self.direct_ratings))
+        expert_df = expert_df.append(list(self.parent_ratings))
         return expert_df
 
 # global_trust_instance = global_trust_ratings(train_review_df)
