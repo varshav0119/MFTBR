@@ -89,6 +89,7 @@ class local_trust_ratings:
 
     def get_rating_prediction(self, idproduct):
 #         trusted_users = trust_df[trust_df['iduser'] == self.iduser]['idtrusted']
+        self.trusted_user_ratings = pd.DataFrame()
         if(len(self.local_trusted_users) == 0):
             return np.nan
         trusted_user_ratings = self.review_df[(self.review_df['idproduct'] == idproduct) & (self.review_df['iduser'].isin(self.local_trusted_users))][['iduser','rating','review_rating','date']]

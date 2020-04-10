@@ -11,7 +11,7 @@ from pickle import load
 saved_model = None
 scaler = None
 
-def init_network(weights_file = 'model3.h5', scaler_file = 'scaler.pkl'):
+def init_network(weights_file = 'model4.h5', scaler_file = 'scaler.pkl'):
     global saved_model, scaler, graph
     # kb.clear_session()
     # kb.get_session().run(tf.local_variables_initializer())
@@ -43,6 +43,7 @@ class neural_network:
             self.review_feedback_rating = self.average_product_rating
         
         query = np.asarray([self.average_user_rating, self.average_product_rating, self.similar_user_rating, self.local_trust_rating, self.category_trust_rating, self.review_feedback_rating])
+        print(query)
         query = query.reshape(1,-1)
         self.query = scaler.transform(query)
 

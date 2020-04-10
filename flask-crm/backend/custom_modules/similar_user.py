@@ -94,6 +94,8 @@ class similar_user_ratings:
             return np.nan
     
     def get_similar_user_ratings_df(self):
+        if self.similar_ratings_df.empty == True:
+            return pd.DataFrame()
         self.similar_ratings_df.columns = ['iduser','idreview','rating','review_rating','date','idfold']
         del self.similar_ratings_df['idfold']
         self.similar_ratings_df = self.similar_ratings_df.set_index(['idreview'])
