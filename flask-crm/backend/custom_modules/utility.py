@@ -58,3 +58,12 @@ def get_average_user_rating(iduser):
 
 def get_average_product_rating(idproduct):
     return float(product_folded_df['fold'+str(idfold)+'_average_rating'][idproduct])
+
+def get_user_list():
+    return list(user_folded_df.index)
+
+def get_product_list():
+    return list(product_folded_df.index)
+
+def get_reviewed_combinations():
+    return list(zip(list(all_review_df['iduser']), list(all_review_df['idproduct'])))
