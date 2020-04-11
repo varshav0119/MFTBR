@@ -6,7 +6,7 @@ import { ModelComponent } from './model/model.component';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'temp', component: TempComponent },
   { path: 'model', component: ModelComponent }
 ];
