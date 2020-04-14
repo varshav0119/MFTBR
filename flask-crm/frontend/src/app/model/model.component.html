@@ -1,0 +1,158 @@
+
+<div class="card-content">
+
+        <!-- <div class="results">
+        Results
+        </div> -->
+
+   
+    <div class="d-flex flex-row justify-content-center">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">User ID</h6>
+                <h3 class="card-text">{{response.iduser}} </h3>
+            </div> 
+            <div class="card-footer">
+                Average User Rating: {{ response.average_user_rating=="nan"?"NA":response.average_user_rating }}
+            </div>    
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Product ID</h6>
+                <h3 class="card-text">{{response.idproduct}} </h3>
+            </div>
+            <div class="card-footer">
+                Average Product Rating: {{response.average_product_rating == "nan"?"NA":response.average_product_rating }}
+            </div>     
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Predicted Rating</h6>
+                <h3 class="card-text">{{response.pred}} </h3>
+            </div>    
+            <div class="card-footer">
+                Actual Rating: {{response.actual == "nan"?"NA":response.actual }}
+            </div>    
+        </div>   
+    </div>
+    <br/>
+
+    <div class="d-flex flex-row">
+        <div class="col-sm-4">
+            <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                    <mat-panel-title>
+                    Similarity
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        <div class="description">
+                            Facet Prediction: {{response.similar_user_pred == "nan" ? "NA" : response.similar_user_pred }}
+                        </div>
+                    </mat-panel-description>
+            </mat-expansion-panel-header>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Rating Feedback</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of response.similar_user_ratings">
+                    <th scope="row">{{item.date}}</th>
+                    <td>{{item.iduser}}</td>
+                    <td>{{item.rating}}</td>
+                    <td>{{item.review_rating}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            </mat-expansion-panel>
+        </div>
+
+        <div class="col-sm-4">
+            <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                Local Trust
+                </mat-panel-title>
+                <mat-panel-description>
+                    <div class="description">
+                    Facet Prediction: {{response.local_trust_pred == "nan" ? "NA" : response.local_trust_pred}}
+                    </div>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Rating Feedback</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of response.local_trust_ratings">
+                    <th scope="row">{{item.date}}</th>
+                    <td>{{item.iduser}}</td>
+                    <td>{{item.rating}}</td>
+                    <td>{{item.review_rating}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            </mat-expansion-panel>
+        </div>
+
+        <div class="col-sm-4">
+            <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                Global Category-Wise Trust
+                </mat-panel-title>
+                <mat-panel-description>
+                    <div class="description_global">
+                        Facet Prediction: {{response.global_category_pred == "nan" ? "NA" : response.global_category_pred}}
+                    </div>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Rating Feedback</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of response.global_category_ratings">
+                    <th scope="row">{{item.date}}</th>
+                    <td>{{item.iduser}}</td>
+                    <td>{{item.rating}}</td>
+                    <td>{{item.review_rating}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            </mat-expansion-panel>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="col-sm-4">
+        <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+            Review Feedback
+            </mat-panel-title>
+            <mat-panel-description>
+                <div class="description_review">
+                    Facet Prediction: {{response.review_pred == "nan" ? "NA" : response.review_pred }}
+                </div>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        </mat-expansion-panel>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserList } from '../user_list';
 import { ProductList } from '../product_list';
 import { RCombination } from '../rc';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,19 +15,18 @@ import { RCombination } from '../rc';
 export class HomeComponent implements OnInit {
 
   form1 = new FormGroup({
-    iduser: new FormControl('', [this.validUserValidator]), 
+    iduser: new FormControl('', [this.validUserValidator]),
     idproduct: new FormControl('', [this.validProductValidator])
-  });
+  }) 
 
   form2 = new FormGroup({
-    iduser: new FormControl(''),
-    idproduct: new FormControl('')
+    iduser_and_product: new FormControl('')
   })
 
   rcList: RCombination[];
   rcUrl: string;
   
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private router: Router) { 
     this.rcUrl = "http://localhost:5000/reviewed_combinations/safe";
   }
 
@@ -55,21 +55,12 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit1(){
-    console.warn(this.form1.value);
-    // this.predict(this.form1.get('iduser').value, this.form.get('idproduct').value)
+    this.router.navigate(['model', {iduser: this.form1.get('iduser').value, idproduct: this.form1.get('idproduct').value}])
 
   }
 
   onSubmit2(){
-    console.warn(this.form2.value);
-  }
-
-  predict(iduser: number, idproduct: number){
-    // let params = new HttpParams().set('iduser',String(iduser)).set('idproduct',String(idproduct));
-    // this.http.get<any>('http://localhost:5000/model', {params}).subscribe( data => { this.response = data})
-    // this.modelService.getModel(iduser, idproduct)
-    //         .subscribe((data: any) => this.response = data);
-    
+    this.router.navigate(['model', this.form2.get('iduser_and_product').value])
   }
 
 }

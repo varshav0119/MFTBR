@@ -1,36 +1,48 @@
-<h2>Multi-Faceted Trust Based Recommendation System</h2>
-
-<p>Pick User ID and Product ID for which you want to predict rating</p>
-
-<form [formGroup]="form1" (ngSubmit)="onSubmit1()" class="form-group">
-  
-    <label>
-      User ID:
-      <input type="number" formControlName="iduser" class = "form-control" required>
-    </label>
-  
-    <label>
-      Product ID:
-      <input type="number" formControlName="idproduct" class = "form-control" required>
-    </label>
-    <br/>
-    <button type="submit" [disabled]="!form1.valid">Submit</button>
-  
-  </form>
-
-  <div>Or</div>
-
-  <form [formGroup]="form2" (ngSubmit)="onSubmit2()">
-  
-    <label>User ID and Product ID</label>
-    <br/>
-    <select>
-      <option *ngFor = "let c of rcList" [value] = "{'iduser':c.iduser,'idproduct':c.idproduct}">
-        User ID: {{c.iduser}}, Product ID: {{c.idproduct}}
-      </option>
-      <br/>
-    </select>
-    <br/>
-    <button type="submit" [disabled]="!form2.valid">Submit</button>
-  
-  </form>
+<div class="row">
+  <h2>Multi-Faceted Trust Based Recommendation System</h2>
+  <div class="col-md-9 register-right">
+    <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Enter Values</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Select Combination</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <h3 class="register-heading">Enter any User ID and Product ID</h3>
+            <div class="row register-form">
+                <div class="col-md-6">
+                    <form [formGroup]="form1" (ngSubmit)="onSubmit1()">
+                      <div class="form-group">
+                        <input type="number" formControlName="iduser" class = "form-control" placeholder = "User ID" required>
+                      </div>
+                      <div class="form-group">
+                        <input type="number" formControlName="idproduct" class = "form-control" placeholder = "Product ID" required>
+                      </div>
+                      <input type="submit" class="btnRegister"  value="Predict" [disabled]="!form1.valid"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <h3  class="register-heading">Select a suggested User ID and Product ID combination</h3>
+            <div class="row register-form">
+                <div class="col-md-6">
+                  <form [formGroup]="form2" (ngSubmit)="onSubmit2()">
+                    <div class="form-group">
+                      <select class="form-control" formControlName = "iduser_and_product" required>
+                        <option *ngFor = "let c of rcList" [ngValue] = "c">
+                          User ID: {{c.iduser}}, Product ID: {{c.idproduct}}
+                        </option>
+                      </select>
+                    </div>
+                    <input type="submit" class="btnRegister"  value="Predict" [disabled]="!form2.valid"/>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

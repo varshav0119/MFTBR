@@ -3,7 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ModelService } from '../model.service';
 
 import { HttpClient, HttpParams } from '@angular/common/http';
-
+import { ActivatedRoute } from '@angular/router';
+import { Pipe, PipeTransform } from '@angular/core';
 
 
 @Component({
@@ -13,30 +14,26 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 })
 export class ModelComponent implements OnInit {
 
-  form = new FormGroup({
-    iduser: new FormControl(''),
-    idproduct: new FormControl(''),
-  });
-
+  iduser;
+  idproduct;
   response;
+  predictUrl: string;
   
-  constructor(private modelService: ModelService, private http: HttpClient) { }
+  constructor(private modelService: ModelService, private http: HttpClient, private route: ActivatedRoute) {
+    this.predictUrl = "http://localhost:5000/model/predict";
+    this.route.params.subscribe( params => {
+      console.log("Parameters: ", params);
+      this.iduser = params.iduser;
+      this.idproduct = params.idproduct;
+    } );
+   }
 
   ngOnInit(): void {
+    let params = {"iduser": this.iduser, "idproduct": this.idproduct};
+    this.http.get(this.predictUrl, { params: params }).subscribe( data => 
+      {
+        console.log("Response: ", data)
+        this.response = data
+      });
   }
-
-  onSubmit(){
-    console.warn(this.form.value);
-    this.predict(this.form.get('iduser').value, this.form.get('idproduct').value)
-
-  }
-
-  predict(iduser: number, idproduct: number){
-    let params = new HttpParams().set('iduser',String(iduser)).set('idproduct',String(idproduct));
-    this.http.get<any>('http://localhost:5000/model', {params}).subscribe( data => { this.response = data})
-    // this.modelService.getModel(iduser, idproduct)
-    //         .subscribe((data: any) => this.response = data);
-    
-  }
-
 }

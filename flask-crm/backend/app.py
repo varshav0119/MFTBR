@@ -80,19 +80,19 @@ def pack_response(iduser, idproduct, actual_rating, average_user_rating, average
     expert_ratings_dict = expert_ratings_df.to_dict('records')
 
     res = dict()
-    res['iduser'] = iduser
-    res['idproduct'] = idproduct
-    res['actual'] = actual_rating
-    res['average_user_rating'] = average_user_rating
-    res['average_product_rating'] = average_product_rating
-    res['similar_user_pred'] = similar_predicted_rating
+    res['iduser'] = str(iduser)
+    res['idproduct'] = str(idproduct)
+    res['actual'] = str(round(actual_rating, ndigits=2))
+    res['average_user_rating'] = str(round(average_user_rating, ndigits=2))
+    res['average_product_rating'] = str(round(average_product_rating, ndigits=2))
+    res['similar_user_pred'] = str(round(similar_predicted_rating, ndigits=2))
     res['similar_user_ratings'] = similar_user_ratings_dict
-    res['local_trust_pred'] = local_predicted_rating
+    res['local_trust_pred'] = str(round(local_predicted_rating, ndigits=2))
     res['local_trust_ratings'] = local_trust_ratings_dict
-    res['global_category_pred'] = category_predicted_rating
+    res['global_category_pred'] = str(round(category_predicted_rating, ndigits=2))
     res['global_category_ratings'] = expert_ratings_dict
-    res['review_pred'] = review_predicted_rating
-    res['pred'] = final_predicted_rating
+    res['review_pred'] = str(round(review_predicted_rating, ndigits=2))
+    res['pred'] = str(round(final_predicted_rating, ndigits=2))
 
     print(res)
     return res
@@ -118,7 +118,7 @@ def reviewed_combinations():
 def reviewed_combinations_safe():
     if request.method == "GET":
         print("\n\nGET for safe review combinations")
-        rc = get_reviewed_combinations()
+        rc = [(276, 65903), (1265, 1501), (650, 41796), (312, 64230), (2449, 130712)]
         rc_transform = []
         for combination in rc:
             rc_transform.append({'iduser': combination[0], 'idproduct': combination[1]})
