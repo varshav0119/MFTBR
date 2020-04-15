@@ -118,7 +118,7 @@ def reviewed_combinations():
 def reviewed_combinations_safe():
     if request.method == "GET":
         print("\n\nGET for safe review combinations")
-        rc = [(276, 65903), (1265, 1501), (650, 41796), (312, 64230), (2449, 130712)]
+        rc = [(467, 834), (277, 50280), (276, 65903), (1265, 1501), (650, 41796), (312, 64230), (2449, 130712)]
         rc_transform = []
         for combination in rc:
             rc_transform.append({'iduser': combination[0], 'idproduct': combination[1]})

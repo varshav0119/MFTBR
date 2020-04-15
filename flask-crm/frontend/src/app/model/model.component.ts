@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ModelService } from '../model.service';
 
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
@@ -19,7 +18,7 @@ export class ModelComponent implements OnInit {
   response;
   predictUrl: string;
   
-  constructor(private modelService: ModelService, private http: HttpClient, private route: ActivatedRoute) {
+  constructor(private http: HttpClient, private route: ActivatedRoute) {
     this.predictUrl = "http://localhost:5000/model/predict";
     this.route.params.subscribe( params => {
       console.log("Parameters: ", params);
