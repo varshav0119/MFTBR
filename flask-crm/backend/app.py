@@ -102,7 +102,7 @@ def pack_response(iduser, idproduct, actual_rating, average_user_rating, average
 
 @app.route("/health", methods = ["GET"])
 def health():
-    return "Welcome to Living Hell! (P.S. At the very least, this server is running)"
+    return "Welcome to MFTBR! (P.S. This server is running)"
 
 @app.route("/reviewed_combinations", methods = ["GET"])
 def reviewed_combinations():
