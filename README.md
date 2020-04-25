@@ -27,7 +27,7 @@ If the above command fails due to:
 2. Server runs on localhost:5000; to check the APIs, import the given Postman collection referred to in the last section
 
 #### Note
-Server may take a few minutes to start up, and may display warnings, which can mostly be ignored.
+Server may take a few minutes to start up, and may display warnings. If the health check (localhost:5000/health GET) works, the demo can be executed.
 
 ### front-end server: flask-crm/frontend
 1. `ng serve`
