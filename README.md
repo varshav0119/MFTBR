@@ -26,6 +26,9 @@ If the above command fails due to:
 1. `flask run`
 2. Server runs on localhost:5000; to check the APIs, import the given Postman collection referred to in the last section
 
+#### Note
+Server may take a few minutes to start up, and may display warnings, which can mostly be ignored.
+
 ### front-end server: flask-crm/frontend
 1. `ng serve`
 2. Server runs on localhost:4200
