@@ -2,7 +2,7 @@
 Multi-Faceted Trust Based Recommendation System  
 This repository contains and demonstrates a model built to carry out rating prediction for user-item pairs in an e-commerce environment.
 
-###Dataset
+### Dataset
 Rich Epinions Dataset, can be found at:  https://projet.liris.cnrs.fr/red/ 
 
 ## Dependencies
