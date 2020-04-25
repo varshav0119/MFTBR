@@ -6,8 +6,9 @@ This repository contains and demonstrates a model built to carry out rating pred
 Rich Epinions Dataset, can be found at:  https://projet.liris.cnrs.fr/red/ 
 
 ## Dependencies
-1. Python3
-2. Angular 8, with Node version 10+
+1. Python 3.5-3.7
+2. Pip 19.0+
+3. Angular 8
 
 ## Installation
 ### front-end: flask-crm/frontend
@@ -15,8 +16,10 @@ Rich Epinions Dataset, can be found at:  https://projet.liris.cnrs.fr/red/
 ### back-end: flask-crm/backend
 `pip3 install -r requirements.txt`  
   
-  
-If the above command fails, or succeeds but on running the server some modules are missing, kindly install them manually and proceed.
+#### Note
+If the above command fails due to:
+  * inability to find tensorflow 2.1.0, update Pip version to match above specification
+  * other reasons; or succeeds, but on running the server, some modules are missing: kindly install the modules listed in flask-crm/backend/requirements.txt manually to proceed
 
 ## Running
 ### back-end server: flask-crm/backend
