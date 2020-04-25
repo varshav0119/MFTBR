@@ -1,6 +1,6 @@
 **/__pycache__/
-**/*.csv
+#**/*.csv
 **/*DS_Store
-**/*.h5
-**/*.pkl
+#**/*.h5
+#**/*.pkl
 **/.idea
