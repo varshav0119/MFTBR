@@ -18,8 +18,8 @@ Rich Epinions Dataset, can be found at:  https://projet.liris.cnrs.fr/red/
   
 #### Note
 If the above command fails due to:
-  * inability to find tensorflow 2.1.0, update Pip version to match above specification
-  * other reasons; or succeeds, but on running the server, some modules are missing: kindly install the modules listed in flask-crm/backend/requirements.txt manually to proceed
+  * inability to find tensorflow 2.1.0, update Pip to a version > 19.0 as mentioned in dependencies
+  * other reasons; or succeeds, but on running the demo, some modules are missing/prediction does not work due to server error: kindly check the versions of installed Python modules as per flask-crm/backend/requirements.txt
 
 ## Running
 ### back-end server: flask-crm/backend
