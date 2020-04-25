@@ -1,0 +1,37 @@
+.card-content{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    height: 100vh;
+}
+
+div.card {
+    margin: 2%;
+}
+
+h6, h3{
+    margin:auto;
+}
+
+.description{
+    position:relative;
+    left: 40%;
+}
+
+.description_global{
+    position:relative;
+    left: 20%;
+}
+
+.description_review{
+    position:relative;
+    left: 31%;
+}
+
+.mat-expansion-panel{
+    background: white;
+}
+
+/* .results{
+    margin:auto;
+    color: white;
+    font-family: 'Calistoga', cursive;
+} */

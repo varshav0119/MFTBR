@@ -9,10 +9,14 @@ import { User } from './user';
 })
 export class UserService {
 
-  userUrl: "localhost:5000/user"
+  userUrl: "localhost:5000/users"
 
   constructor(private http: HttpClient) { }
+  
   getUsers() {
-    return this.http.get<User[]>(this.userUrl);
+    console.warn("users");
+    let userList = this.http.get(this.userUrl);
+    console.warn(userList);
+    return userList;
   }
 }

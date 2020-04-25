@@ -1,0 +1,79 @@
+.row{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    height: 100vh;
+}
+
+.register-right{
+    background: #f8f9fa;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.register .register-form{
+    padding: 2%;
+}
+.btnRegister{
+    margin: auto;
+    margin-top: 4%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+
+.btnRegister:disabled,
+.btnRegister[disabled]{
+    cursor: not-allowed;
+    background: #95aac0;
+}
+
+.register .nav-tabs{
+    /* margin-top: 3%; */
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #0062cc;
+    border: 2px solid #0062cc;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.register-heading, form{
+    text-align: center;
+    margin-top: 2%;
+    /* margin-bottom: -15%; */
+    color: #495057;
+}
+
+div.col-md-6{
+    margin: auto;
+}
+
+h2{
+    margin:auto;
+    color: white;
+}
+
+div.row.register-form{
+    height: 50vh;
+    background: white;
+}
